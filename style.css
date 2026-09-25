@@ -1,0 +1,1157 @@
+/* ==========================================================================
+   TOKENS
+   ========================================================================== */
+:root {
+  /* Typography — change these to swap fonts site-wide */
+  --font-display: Georgia, 'Times New Roman', serif;
+  /* This changes the big headings */
+  --font-body: 'Inter', Helvetica, 'SF Pro', sans-serif;
+  /* This keeps your paragraphs modern */
+  /* Color - Antique Parchment */
+  --color-bg: #EAE0C8;
+  --color-surface: #F2EADA;
+  --color-text: #2B2620;
+  --color-text-muted: #6B5E4E;
+  --color-accent: #385741;
+  --color-line: #D6C7A8;
+  --color-shadow: rgba(43, 38, 32, 0.12);
+  /* Layout */
+  --content-width: 1080px;
+  --section-padding-y: 4rem;
+  /* Reduced from 9rem */
+  --section-padding-y-mobile: 2.5rem;
+  /* Reduced from 4.5rem */
+  --gutter: 2rem;
+
+  --radius-sm: 4px;
+  --radius-md: 10px;
+  --radius-lg: 28px;
+}
+
+/* ==========================================================================
+   RESET & BASE
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  /* Restores the solid parchment background */
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+
+  /* Your custom SRK cursor */
+  cursor: url('images/srk-cursor.png') 32 18, auto;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.section__inner,
+.hero__inner,
+.footer__inner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.section {
+  padding: var(--section-padding-y) 0;
+  border-top: 1px solid var(--color-line);
+}
+
+.section__title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+  margin: 0 0 3.5rem;
+  letter-spacing: -0.01em;
+}
+
+.navbar {
+  position: absolute;
+  /* Floats the nav over the hero image */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background: transparent;
+  /* Removes the dark background */
+}
+
+.navbar__inner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 1.5rem var(--gutter);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  /* Pushes links to the right */
+  gap: 2rem;
+}
+
+.navbar__link {
+  color: #fffdf8;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  /* Adds contrast so text is readable over the photo */
+  transition: opacity 160ms ease;
+}
+
+.navbar__link:hover {
+  opacity: 0.75;
+}
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+.hero {
+  padding: 0 0 2rem;
+  /* Reduces the empty space below your name/subtitle */
+  position: relative;
+}
+
+.hero__photo {
+  width: 100%;
+  height: 65vh;
+  /* Increases the banner vertically to show more of your body */
+  object-fit: cover;
+  object-position: 10% 40%;
+  /* Keeps your face framed while revealing the gown below */
+  display: block;
+  border-radius: 0;
+  margin-bottom: 0;
+  cursor: default;
+}
+
+.hero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 1rem;
+  /* Closes the awkward gap between the image and your name */
+}
+
+.hero__name-trigger {
+  padding: 0.5rem;
+  border-radius: var(--radius-lg);
+  transition: transform 180ms ease;
+}
+
+.hero__name-trigger:hover {
+  transform: translateY(-2px);
+}
+
+.hero__name {
+  font-family: 'Impact', sans-serif;
+  font-weight: 400;
+  font-size: clamp(3.2rem, 9vw, 6.4rem);
+  line-height: 1;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+.hero__statement {
+  font-family: 'Inter', Helvetica, 'SF Pro', sans-serif;
+  max-width: 46ch;
+  margin: 0.5rem auto 0;
+  /* Changed from 2rem to 0.5rem to close the gap */
+  color: var(--color-text-muted);
+  font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   MODAL
+   ========================================================================== */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: var(--gutter);
+}
+
+.modal.is-open {
+  display: flex;
+}
+
+.modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(34, 30, 20, 0.35);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.modal__panel {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  max-height: 85vh;
+  overflow-y: auto;
+  background: rgba(255, 253, 248, 0.78);
+  backdrop-filter: blur(22px) saturate(140%);
+  -webkit-backdrop-filter: blur(22px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius-lg);
+  padding: 3rem 2.75rem;
+  box-shadow: 0 30px 60px rgba(34, 30, 20, 0.25);
+  animation: modal-in 220ms ease;
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal__close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.75rem;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--color-text-muted);
+}
+
+.modal__close:hover {
+  color: var(--color-text);
+}
+
+.modal__title {
+  font-family: 'Inter', Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 1.7rem;
+  margin: 0 0 1.5rem;
+}
+
+.modal__text {
+  color: var(--color-text-muted);
+  margin: 0 0 1.25rem;
+}
+
+.modal__contact {
+  display: inline-block;
+  margin-top: 0.75rem;
+  padding: 0.85rem 1.75rem;
+  background: var(--color-accent);
+  color: #fffdf8;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: opacity 160ms ease;
+}
+
+.modal__contact:hover {
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   TIMELINE
+   ========================================================================== */
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 80px;
+  /* was 60px — half of the new 160px image width */
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: var(--color-line);
+}
+
+.timeline__item {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  /* was 120px 1fr */
+  gap: 2rem;
+  position: relative;
+  padding-bottom: 4rem;
+}
+
+.timeline__item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline__logo {
+  width: 160px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--color-line);
+  background: var(--color-surface);
+  position: relative;
+  z-index: 1;
+}
+
+.timeline__role {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.4rem;
+  margin: 0.35rem 0 0.2rem;
+}
+
+.timeline__org {
+  color: var(--color-accent);
+  font-size: 0.95rem;
+  margin: 0 0 0.9rem;
+}
+
+.timeline__desc {
+  max-width: 60ch;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* WRITINGS — INTERACTIVE BOOKSHELF */
+.section__subtitle {
+  margin: -2.5rem 0 3.5rem;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+}
+
+.bookshelf {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.bookshelf__spines {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.75rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 4px solid var(--color-text);
+  filter: drop-shadow(0 6px 6px var(--color-shadow));
+}
+
+.spine {
+  position: relative;
+  width: 55px;
+  height: 280px;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  text-align: left;
+  padding: 1.1rem 0.6rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  letter-spacing: 0.05em;
+  color: #fffdf8;
+
+  /* FLIPPED: Bottom is rounded, so when rotated 180deg it shows at the top */
+  border-radius: 0 0 6px 6px;
+
+  /* THE FIX: Anchors rotation to the center, removing the massive empty gap */
+  transform-origin: center;
+
+  transition: transform 200ms ease, box-shadow 200ms ease;
+
+  /* FLIPPED: Shadows adjusted to account for the 180deg rotation */
+  box-shadow: inset 6px 0 12px rgba(0, 0, 0, 0.4), -4px -6px 15px rgba(0, 0, 0, 0.25);
+}
+
+/* Gold foil divider line running down the spine */
+.spine::before {
+  content: '';
+  position: absolute;
+  right: 10px;
+  /* Flipped to the right */
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255, 223, 128, 0.4);
+  box-shadow: -2px 0 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Realistic shading gradients for each book */
+.spine--a {
+  background: linear-gradient(90deg, #4a1012 0%, #8c2025 35%, #b52c32 50%, #8c2025 65%, #4a1012 100%);
+}
+
+.spine--b {
+  background: linear-gradient(90deg, #132240 0%, #233d73 35%, #2e4f94 50%, #233d73 65%, #132240 100%);
+}
+
+.spine--c {
+  background: linear-gradient(90deg, #6e5010 0%, #b3841a 35%, #cca33b 50%, #b3841a 65%, #6e5010 100%);
+}
+
+.spine--d {
+  background: linear-gradient(90deg, #14281c 0%, #244733 35%, #335c45 50%, #244733 65%, #14281c 100%);
+}
+
+.spine:hover {
+  /* Positive 12px moves it UP due to the inverted Y-axis of the 180deg rotation */
+  transform: rotate(180deg) translateY(12px);
+  box-shadow: inset 6px 0 12px rgba(0, 0, 0, 0.4), -6px -10px 20px rgba(0, 0, 0, 0.35);
+}
+
+.spine.is-active {
+  height: 295px;
+  transform: rotate(180deg) translateY(16px);
+  box-shadow: inset 6px 0 12px rgba(0, 0, 0, 0.4), -8px -14px 26px rgba(0, 0, 0, 0.4);
+}
+
+.bookshelf__panel {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 2rem;
+  transition: opacity 180ms ease;
+}
+
+.bookshelf__panel.is-updating {
+  opacity: 0;
+}
+
+.bookshelf__cover {
+  width: 160px;
+  height: 240px;
+  object-fit: contain;
+  object-position: center;
+  background-color: transparent;
+  /* Blends perfectly into the website background */
+  box-shadow: none;
+  /* Removes the shadow so you don't see an invisible box */
+}
+
+.bookshelf__css-cover {
+  width: 160px;
+  height: 240px;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 14px 34px var(--color-shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  /* Gold inner border matching the spine lines */
+  border: 2px solid rgba(255, 223, 128, 0.4);
+}
+
+.bookshelf__css-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.4rem;
+  color: #fffdf8;
+  line-height: 1.2;
+}
+
+.bookshelf__category {
+  font-size: 0.85rem;
+  color: var(--color-accent);
+  margin: 0 0 0.6rem;
+}
+
+.bookshelf__title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.8rem;
+  margin: 0 0 1rem;
+}
+
+.bookshelf__desc {
+  color: var(--color-text-muted);
+  max-width: 55ch;
+  margin: 0 0 1.5rem;
+}
+
+.bookshelf__cta {
+  display: inline-block;
+  padding: 0.85rem 1.75rem;
+  background: var(--color-accent);
+  color: #fffdf8;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: opacity 160ms ease;
+}
+
+.bookshelf__cta:hover {
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   PROJECTS — MODULAR GRID
+   ========================================================================== */
+/* Change from a multi-column grid to a single vertical column */
+.project-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  /* We will use padding instead to control the space around the lines */
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 0;
+  /* Adds a moderate, balanced space above and below each line */
+  border-bottom: 1px solid var(--color-line);
+  /* Restores the subtle divider line */
+  height: auto;
+}
+
+.project:first-child {
+  padding-top: 0;
+  /* Keeps the first item flush with the section title */
+}
+
+.project:last-child {
+  border-bottom: none;
+  /* Removes the line after the very last item */
+  padding-bottom: 0;
+}
+
+/* Make the project titles stand out a bit more */
+.project__title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.6rem;
+  margin: 0 0 1rem;
+}
+
+.project__text {
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  margin: 0 0 1.5rem;
+  max-width: 75ch;
+  /* Keeps the reading line length comfortable */
+}
+
+/* Link Containers */
+.project__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.project__links--stack {
+  flex-direction: column;
+}
+
+/* Standard Links (AI & Videos) */
+.project__link {
+  display: inline-block;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: opacity 0.2s ease, border-color 0.2s ease;
+  width: fit-content;
+}
+
+.project__link:hover {
+  opacity: 0.75;
+  border-bottom-color: var(--color-accent);
+}
+
+/* Downloadable File Links (Pitchdecks) */
+.project__link--file {
+  padding: 0.5rem 0.85rem;
+  background: rgba(63, 84, 66, 0.08);
+  /* Faint accent color matching your theme */
+  border-radius: 6px;
+  border: 1px solid rgba(63, 84, 66, 0.15);
+  font-size: 0.85rem;
+}
+
+.project__link--file:hover {
+  background: rgba(63, 84, 66, 0.12);
+  border-bottom-color: rgba(63, 84, 66, 0.15);
+  /* Overrides the standard link underline */
+}
+
+/* ==========================================================================
+   ACCORDION
+   ========================================================================== */
+.accordion__item {
+  border-bottom: 1px solid var(--color-line);
+}
+
+.accordion__item:first-child {
+  border-top: 1px solid var(--color-line);
+}
+
+.accordion__trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.6rem 0;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+.accordion__icon {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-left: 1.5rem;
+}
+
+.accordion__icon::before,
+.accordion__icon::after {
+  content: '';
+  position: absolute;
+  background: var(--color-text);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.accordion__icon::before {
+  width: 16px;
+  height: 1px;
+}
+
+.accordion__icon::after {
+  width: 1px;
+  height: 16px;
+  transition: transform 220ms ease;
+}
+
+.accordion__trigger[aria-expanded='true'] .accordion__icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.accordion__panel {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 260ms ease;
+}
+
+.accordion__panel p {
+  color: var(--color-text-muted);
+  margin: 0 0 1.75rem;
+  max-width: 65ch;
+}
+
+.accordion__photos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin: 0 0 1.75rem;
+}
+
+.accordion__photos img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  /* This prevents any cropping */
+  border-radius: 8px;
+}
+
+
+/* ON MY DESK */
+.desk__heading {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.6rem, 6vw, 4.4rem);
+  letter-spacing: -0.01em;
+  margin: 0 0 3.5rem;
+}
+
+.desk {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+}
+
+.desk__card {
+  position: relative;
+  overflow: visible;
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: 0 14px 34px var(--color-shadow);
+  padding: 2.5rem 2rem;
+}
+
+.desk__label {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.15rem;
+  margin: 0 0 1rem;
+}
+
+.desk__book-title {
+  font-weight: 600;
+  margin: 0 0 0.75rem;
+}
+
+.desk__text {
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.desk__card--reading {
+  padding-top: 3.25rem;
+}
+
+.desk__card--reading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 32px;
+  transform: translateY(-38%);
+  width: 26px;
+  height: 68px;
+  background: #2453d1;
+  clip-path: polygon(0 0, 100% 0, 100% 78%, 50% 100%, 0 78%);
+  box-shadow: 0 6px 14px var(--color-shadow);
+}
+
+.desk__card--jamming {
+  display: flex;
+  align-items: center;
+}
+
+.desk__jamming-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 100%;
+}
+
+.desk__jamming-text {
+  max-width: 60%;
+}
+
+.desk__card--jamming .desk__label {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+}
+
+.desk__song {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--color-text-muted);
+}
+
+.desk__audio {
+  display: none;
+  /* belt-and-braces — no controls attribute already hides the native UI */
+}
+
+
+.vinyl {
+  flex-shrink: 0;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  background:
+    repeating-radial-gradient(circle at center,
+      #1b1b1b 0px,
+      #1b1b1b 2px,
+      #262626 3px,
+      #1b1b1b 4px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.25);
+}
+
+.vinyl::before {
+  content: '';
+  position: absolute;
+  inset: -20%;
+  background: linear-gradient(115deg,
+      transparent 35%,
+      rgba(255, 255, 255, 0.22) 48%,
+      transparent 60%);
+  pointer-events: none;
+}
+
+.vinyl.is-playing {
+  animation: vinyl-spin 6s linear infinite;
+}
+
+.vinyl__label {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: #e3a72b;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.4) inset;
+}
+
+.vinyl__label::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-bg);
+}
+
+@keyframes vinyl-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.vinyl-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  /* Space between the bottom of the vinyl and the text */
+  flex-shrink: 0;
+}
+
+.vinyl-hint {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.footer {
+  padding: 5rem 0 3.5rem;
+  border-top: 1px solid var(--color-line);
+}
+
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.75rem 2.25rem;
+}
+
+.footer__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 160ms ease, opacity 160ms ease;
+}
+
+.footer__link:hover {
+  color: var(--color-accent);
+  opacity: 0.85;
+}
+
+.footer__icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.footer__note {
+  margin: 3rem var(--gutter) 0;
+  max-width: var(--content-width);
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+@media (min-width: 1080px) {
+  .footer__note {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 860px) {
+  .bookshelf {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .bookshelf__spines {
+    overflow-x: auto;
+    padding-bottom: 1rem;
+  }
+
+  .desk {
+    grid-template-columns: 1fr;
+  }
+
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .bookshelf__panel {
+    grid-template-columns: 1fr;
+  }
+
+  .bookshelf__cover {
+    width: 140px;
+    height: 210px;
+  }
+
+  .desk__jamming-row {
+    flex-wrap: wrap;
+  }
+
+  :root {
+    --section-padding-y: var(--section-padding-y-mobile);
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline::before {
+    left: 26px;
+  }
+
+  .timeline__item {
+    grid-template-columns: 52px 1fr;
+    gap: 1.25rem;
+  }
+
+  .timeline__logo {
+    width: 52px;
+    height: 52px;
+  }
+
+  .modal__panel {
+    padding: 2.5rem 1.75rem;
+  }
+
+  .footer__inner {
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+}
+
+/* ============ MOBILE & TABLET RESPONSIVENESS ============ */
+@media (max-width: 768px) {
+
+  /* 1. Naturally smaller font sizes for mobile (laptop stays untouched) */
+  body {
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  .section {
+    padding: 2.5rem 1.25rem;
+  }
+
+  .section__title,
+  .desk__heading {
+    font-size: 1.65rem;
+  }
+
+  .project__title,
+  .bookshelf__title,
+  .career__role,
+  .accordion__title,
+  h3 {
+    font-size: 1.2rem !important;
+  }
+
+  .hero__title,
+  .hero h1 {
+    font-size: clamp(2rem, 10vw, 3.2rem);
+  }
+
+  /* Scale down the 'About Me' popup text slightly on phones */
+  .modal__content,
+  .about-modal {
+    font-size: 0.9rem;
+    padding: 1.5rem;
+  }
+
+  /* 2. Fix Bookshelf Spines getting cut off on mobile */
+  .bookshelf {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .bookshelf__spines {
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+    height: auto !important;
+    min-height: 250px;
+    /* Gives the tall spines room so they don't clip */
+    overflow: visible !important;
+    padding-top: 2rem;
+  }
+
+  .bookshelf__panel {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem;
+    width: 100%;
+  }
+
+  .bookshelf__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* 3. On My Desk: Stack cards neatly */
+  .desk {
+    grid-template-columns: 1fr !important;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .desk__jamming-row {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  /* 4. Force Footer Icons to stay HORIZONTAL on mobile */
+  .footer__inner,
+  .footer__links,
+  .footer__socials,
+  .footer ul,
+  footer nav {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 1.25rem !important;
+  }
+
+  /* Make sure the copyright text sits cleanly on its own line below the icons */
+  .footer__copy,
+  footer p {
+    width: 100%;
+    text-align: center;
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Keep top navigation in a single centered line on mobile */
+  nav,
+  nav ul,
+  .nav__links,
+  .hero__nav,
+  [class*="nav"] {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    left: 0 !important;
+    right: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  nav li {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  nav a,
+  [class*="nav"] a {
+    font-size: 0.8rem !important;
+    white-space: nowrap !important;
+    padding: 0.2rem !important;
+    margin: 0 !important;
+  }
+}

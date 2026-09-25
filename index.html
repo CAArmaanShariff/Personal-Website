@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Armaan Shariff</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Space+Grotesk:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="navbar__inner">
+      <a href="#career" class="navbar__link">Career</a>
+      <a href="#writing" class="navbar__link">Writings</a>
+      <a href="#projects" class="navbar__link">Projects</a>
+      <a href="#accolades" class="navbar__link">Accolades</a>
+      <a href="#contact" class="navbar__link">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <img class="hero__photo" src="images/profile.jpeg" alt="Armaan Shariff">
+    <div class="hero__inner">
+      <button class="hero__name-trigger" id="bioTrigger" aria-haspopup="dialog" aria-controls="bioModal">
+        <h1 class="hero__name">Armaan Shariff</h1>
+      </button>
+      <p class="hero__statement">Click my name!</p>
+    </div>
+  </header>
+  <!-- ============ BIO MODAL ============ -->
+  <div class="modal" id="bioModal" role="dialog" aria-modal="true" aria-labelledby="bioModalTitle">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__panel">
+      <button class="modal__close" id="bioClose" aria-label="Close bio">&times;</button>
+      <h2 class="modal__title" id="bioModalTitle">About Me</h2>
+      <p class="modal__text">
+        I consider myself an eternal optimist. I strongly believe in the adage that it is the greatest injustice to us
+        if we give ourselves anything less than the best.
+      </p>
+      <p class="modal__text">
+        I’m a CA by designation but I’m so much more than that – I’m a writer, a teacher, an author, a dancer
+        (especially SRK songs) and a very bad singer! We were not meant to be typecasted to a single box – we were meant
+        for more things on this beautiful earth! I love all things art and live by Oscar Wilde’s quote ‘Art for Art’s
+        sake’. I consider myself a high agency person who goes after what he wants and who also indulges in various side
+        quests!
+      </p>
+      <p class="modal__text">
+        I’ve always been fascinated by the field of economics & public policy and I hope to be a part of that discipline
+        very soon. I love academics and always found a deep joy in learning new things in whichever professional
+        endeavour I’ve undertaken.
+      </p>
+      <p class="modal__text">
+        There is so much out there in this world that we have not experienced yet and I truly believe that we owe it to
+        ourselves to live with whimsy & joy & to live life to the fullest!
+      </p>
+      <!-- INSERT MAILTO ADDRESS HERE -->
+      <a href="mailto:armaanshariffwork@gmail.com" class="modal__contact">Let's talk!</a>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ============ CAREER TRAJECTORY ============ -->
+    <section class="section" id="career">
+      <div class="section__inner">
+        <h2 class="section__title">Career trajectory</h2>
+
+        <ol class="timeline">
+          <li class="timeline__item">
+            <img class="timeline__logo" src="images/deloitte.jpeg" alt="Deloitte India">
+            <div class="timeline__content">
+              <h3 class="timeline__role">Finance Transformation Consultant</h3>
+              <p class="timeline__org">Deloitte India</p>
+              <p class="timeline__desc">
+                Always dreamt of living the management consultant’s life and it has finally arrived. I’m in the midst of
+                great company and very smart and nice people in this firm. Looking forward to the experiences and
+                learnings!
+              </p>
+            </div>
+          </li>
+
+          <li class="timeline__item">
+            <img class="timeline__logo" src="images/ylac.jpg" alt="YLAC">
+            <div class="timeline__content">
+              <h3 class="timeline__role">Incoming Fellow</h3>
+              <p class="timeline__org">YLAC</p>
+              <p class="timeline__desc">
+                Got selected for the YLAC – Policy in Action Fellowship on a partial scholarship. My long-term vision
+                has always been to work in public policy and this is a step in that direction. Super excited for this!
+              </p>
+            </div>
+          </li>
+          <li class="timeline__item">
+            <img class="timeline__logo" src="images/christ.jpeg" alt="Christ University, Bangalore">
+            <div class="timeline__content">
+              <h3 class="timeline__role">Adjunct Professor</h3>
+              <p class="timeline__org">Christ University, Bangalore</p>
+              <p class="timeline__desc">
+                I found my love for teaching when I was around 16 years old. In that process, I realised that I
+                understood the subject much better when I taught it to someone. When the concept clicks in my student’s
+                mind like an ‘A-hah’ moment, it is the most gratifying feeling and therefore I chased that feeling by
+                taking up a stint at my alma mater. I had the privilege of teaching and inspiring the sweetest and quite
+                bright students in Christ. It was truly a memorable experience for me!
+              </p>
+            </div>
+          </li>
+
+
+
+
+          <li class="timeline__item">
+            <img class="timeline__logo" src="images/kpmg.jpeg" style="object-position: 10% 40%;" alt="KPMG India">
+            <div class="timeline__content">
+              <h3 class="timeline__role">Auditor</h3>
+              <p class="timeline__org">KPMG India</p>
+              <p class="timeline__desc">
+                My first corporate exposure that moulded me to become the well rounded professional that I am today.
+                Lots of memories made over late nights and early mornings of intense work. Many people were my first
+                mentors there from whom I learnt so much and I still continue to take those learnings with me wherever I
+                go. Ever grateful.
+              </p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ THE WRITER'S ROOM ============ -->
+    <section class="section" id="writing">
+      <div class="section__inner">
+        <h2 class="section__title">Writings</h2>
+        <p class="section__subtitle">Pick a spine from the shelf.</p>
+
+        <div class="bookshelf">
+          <div class="bookshelf__spines" role="tablist" aria-label="Selected works">
+            <!-- Removed 'is-active' and set aria-selected to 'false' -->
+            <button class="spine spine--a" type="button" role="tab" aria-selected="false" aria-controls="bookPanel"
+              data-book="blurred-bloodlines">Blurred Bloodlines</button>
+
+            <button class="spine spine--b" type="button" role="tab" aria-selected="false" aria-controls="bookPanel"
+              data-book="student-reporter">Student Reporter</button>
+
+            <button class="spine spine--c" type="button" role="tab" aria-selected="false" aria-controls="bookPanel"
+              data-book="youthpur">Youthpur</button>
+
+            <button class="spine spine--d" type="button" role="tab" aria-selected="false" aria-controls="bookPanel"
+              data-book="poetry">Prose & Poetry</button>
+          </div>
+
+          <!-- Added style="display: none;" to hide this panel on page load -->
+          <div class="bookshelf__panel" id="bookPanel" style="display: none;">
+            <img class="bookshelf__cover" id="bookCover" src="images/blurred_bloodlines_cover.jpg"
+              alt="Blurred Bloodlines cover">
+
+            <div class="bookshelf__css-cover" id="cssCover" style="display: none;">
+              <span class="bookshelf__css-title" id="cssCoverTitle"></span>
+            </div>
+
+            <div class="bookshelf__info">
+              <p class="bookshelf__category" id="bookCategory">Book</p>
+              <h3 class="bookshelf__title" id="bookTitle">Blurred Bloodlines</h3>
+              <p class="bookshelf__desc" id="bookDesc">
+                I published a short story based on the Babri Masjid issue back in 2019 (before the dreaded Covid
+                Period). The story showed the power of secularism, peace and brotherhood. You can buy my short story
+                (PS: It is based on a true story!)
+              </p>
+              <a href="https://www.amazon.in/Blurred-Bloodlines-brotherhood-Armaan-Shariff/dp/1648284337"
+                class="bookshelf__cta" id="bookCta" target="_blank" rel="noopener">Buy on Amazon</a>
+            </div>
+          </div>
+        </div>
+    </section>
+    <!--============PROJECTS============-->
+    <section class="section" id="projects">
+      <div class="section__inner">
+        <h2 class="section__title">Projects</h2>
+
+        <div class="project-grid">
+          <!-- Tinkering with AI -->
+          <article class="project">
+            <h3 class="project__title">Tinkering with AI</h3>
+            <p class="project__text">
+              This project was the result of an idea that I’ve been meaning to work upon with AI. I had worked on SA 720
+              compliance quite extensively in my audit days and I wanted to automate that entire process. This is not a
+              completed product but a prototype of the vision I had in mind. Open to your opinions!
+            </p>
+            <div class="project__links">
+              <a href="https://sa-720-checklist.vercel.app/" target="_blank" rel="noopener" class="project__link">SA
+                720 Compliance Checklist App (Draft)</a>
+            </div>
+          </article>
+
+          <!-- Concept Videos -->
+          <article class="project">
+            <h3 class="project__title">Concept Videos</h3>
+            <p class="project__text">
+              I’ve always loved sketch comedies similar to the ones in SNL. So this was my attempt at different types of
+              concept videos I made back in school. The essay film was a new sidequest I tried in a workshop conducted
+              by MAP x Falana films. I was introduced to people from extremely diverse career fields and it was
+              fascinating to see all of us work together to make a creation of our own. I would attribute that event as
+              the butterfly effect that led to creation of this website!
+            </p>
+            <div class="project__links">
+              <a href="https://www.instagram.com/p/DTvjdl5kz3H/" target="_blank" rel="noopener"
+                class="project__link">Watch my essay film</a>
+              <a href="https://www.instagram.com/p/CFPBRdAAEl_/" target="_blank" rel="noopener"
+                class="project__link">Watch my concept film</a>
+              <a href="https://www.instagram.com/p/CJbCclhj13t/" target="_blank" rel="noopener"
+                class="project__link">Watch 2020 Rewind</a>
+            </div>
+          </article>
+
+          <!-- Pitchdecks & Case studies -->
+          <article class="project">
+            <h3 class="project__title">Pitchdecks & Projects</h3>
+            <p class="project__text">
+              I’ve participated & won quite a few business fests over the years. However, I’ve lost access to most of
+              the decks I’ve made. This is my attempt to keep a record of various business related decks made. This is
+              also a place where I will post my other independent projects that I will do in future.<br><br>
+              Had attended a datajam on improving Blore's public transportation (conducted by OpenCity) and I worked
+              with a bunch of cool folks where we used existing datasets to analyse ways to increase bus frequency in
+              specific areas of Blr. Check the PPT & Event report below!
+            </p>
+            <div class="project__links project__links--stack">
+              <a href="files/healthy snacks.pdf" target="_blank" class="project__link project__link--file">Assessment
+                of Healthy Snacks market in India</a>
+              <a href="files/diagnoquick.pdf" target="_blank" class="project__link project__link--file">AI driven
+                diagnosis - DiagnoQuick</a>
+              <a href="files/Datajam.pdf" target="_blank" class="project__link project__link--file">Improving Blr Public
+                Transportation</a>
+              <a href="https://opencity.in/bengaluru-public-transport-datajam-march-2026/" target="_blank"
+                class="project__link project__link--file">Event Report - Data Jam</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <!-- ============ ACCOLADES ============ -->
+    <section class="section" id="accolades">
+      <div class="section__inner">
+        <h2 class="section__title">Accolades</h2>
+
+        <div class="accordion">
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false">
+              <span>Christ University - Student of the Year 2024</span>
+              <span class="accordion__icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion__panel">
+              <p>
+              <div class="accordion__photos">
+                <img src="images/SOTY 1.jpeg" alt="">
+                <img src="images/SOTY 2.jpeg" style="object-position: bottom center;" alt="Student of the Year">
+              </div>
+              To give context, Student of the Year is a prestigious recognition given to an all-rounder student who has
+              excelled in all disciplines in the department including academics, extra-curriculars & workplace success.
+              To be selected for this award out of 2000+ students and among seriously talented folks is an honour I
+              would remember for the rest of my life. I also had the privilege of inviting my mother (my backbone) on
+              the stage to receive this award with me!
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false">
+              <span>Keynote Speaker gigs</span>
+              <span class="accordion__icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion__panel">
+              <p>
+              <div class="accordion__photos">
+                <img src="images/Speaking 1.jpeg" alt="">
+                <img src="images/Speaking 2.jpeg" alt="">
+
+              </div>
+              In June 2026, I had the privilege of being invited as a guest speaker in my alma mater to motivate the
+              incoming first years and welcome them officially to CA & College life! (Picture 1)<br>
+              In July 2026, I was invited as a chief guest at Dominic Savio School, Chennai to give a motivational talk
+              to the students and also brief them about the various careers available to commerce graduates. (Picture 2)
+
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false">
+              <span>Scholarships</span>
+              <span class="accordion__icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion__panel">
+              <p>
+              <div class="accordion__photos">
+                <img src="images/CA 2.jpeg" alt="">
+                <img src="images/CA 3.jpeg" alt="">
+              </div>
+              My CA education was almost entirely financed using various scholarships as mentioned below:<br>
+              1. CA Parivaar Welfare Education Trust Scholarship<br>
+              2. ICAI Scholarship<br>
+              3. ICAI Bengaluru branch Scholarship<br><br>
+              I also received a partial scholarship from Christ University, Bangalore for academic merit &
+              extra-curricular excellence.<br>
+              Also received the HDFC Bank Parivartan ECSS scholarship during my university period.
+
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="desk">
+      <div class="section__inner">
+        <h2 class="desk__heading">On my desk</h2>
+
+        <div class="desk">
+          <div class="desk__card desk__card--reading">
+            <h3 class="desk__label">Currently reading</h3>
+            <p class="desk__book-title">Hard-boiled Wonderland and the End of the World - Haruki Murakami</p>
+            <p class="desk__text">
+              Have always loved Murakami's style of magical realism - Makes me nostalgic of a past that doesn't exist
+            </p>
+          </div>
+
+          <div class="desk__card desk__card--jamming">
+            <div class="desk__jamming-row">
+              <div class="desk__jamming-text">
+                <h3 class="desk__label">Jamming to</h3>
+                <!-- INSERT CURRENT TRACK TITLE / ARTIST HERE -->
+                <p class="desk__song">Belief — John Mayer (Fav Artist of All Time!)</p>
+              </div>
+              <div class="vinyl-wrapper">
+                <div class="vinyl" id="vinyl-record" aria-hidden="true">
+                  <div class="vinyl__label"></div>
+                </div>
+                <span class="vinyl-hint">Play the vinyl!</span>
+              </div>
+            </div>
+          </div>
+          <!-- INSERT TRACK SOURCE HERE -->
+          <audio id="bg-music" class="desk__audio">
+            <source src="music/Belief.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+      </div> <!-- Closes .desk -->
+      </div> <!-- Closes .section__inner -->
+    </section> <!-- Closes the #desk section -->
+  </main> <!-- Closes the main page container -->
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" id="contact">
+    <div class="footer__inner">
+
+      <!-- INSERT LINKEDIN URL HERE -->
+      <a href="https://www.linkedin.com/in/armaan-shariff10/" class="footer__link" target="_blank" rel="noopener"
+        aria-label="LinkedIn">
+        <svg class="footer__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="3"></rect>
+          <circle cx="7.5" cy="6.5" r="0.6" fill="currentColor" stroke="none"></circle>
+          <line x1="7.5" y1="10" x2="7.5" y2="17"></line>
+          <line x1="11.5" y1="10" x2="11.5" y2="17"></line>
+          <path d="M11.5 13.2c0-1.6 1-2.4 2.1-2.4s1.9.8 1.9 2.4V17"></path>
+        </svg>
+      </a>
+
+      <!-- INSERT INSTAGRAM (@intricatemusing) URL HERE -->
+      <a href="https://www.instagram.com/intricatemusing/" class="footer__link" target="_blank" rel="noopener"
+        aria-label="Instagram — @intricatemusing">
+        <svg class="footer__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+          <circle cx="12" cy="12" r="4.2"></circle>
+          <circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none"></circle>
+        </svg>
+      </a>
+      <!-- INSERT SUBSTACK URL HERE -->
+      <a href="https://substack.com/@armaanshariff?utm_source=share&utm_medium=android&r=6cnh7e" class="footer__link"
+        target="_blank" rel="noopener" aria-label="Substack">
+        <svg class="footer__icon" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true">
+          <path
+            d="M22.539 8.242H1.46V5.406h21.08v2.836zM22.539 12.086H1.46v2.836h21.08v-2.836zM22.539 15.93H1.46v8.12l10.54-5.875 10.539 5.875v-8.12z">
+          </path>
+        </svg>
+      </a>
+      <!-- INSERT EMAIL ADDRESS HERE -->
+      <a href="mailto:armaanshariffwork@gmail.com" class="footer__link" target="_blank" rel="noopener"
+        aria-label="Email">
+        <svg class="footer__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+          <path d="M4 7l8 6 8-6"></path>
+        </svg>
+      </a>
+
+      <a href="resume.pdf" class="footer__link" target="_blank" rel="noopener">
+        <svg class="footer__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M7 3h7l5 5v13a1 1 0 01-1 1H7a1 1 0 01-1-1V4a1 1 0 011-1z"></path>
+          <path d="M14 3v5h5"></path>
+          <line x1="8.5" y1="13" x2="15.5" y2="13"></line>
+          <line x1="8.5" y1="16.5" x2="15.5" y2="16.5"></line>
+        </svg>
+        <span>Resume</span>
+      </a>
+
+
+    </div>
+    <p class="footer__note">&copy; <span id="year"></span> Armaan Shariff</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>

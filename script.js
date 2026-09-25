@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
     touchTimer = setTimeout(() => {
       srkTouch.style.opacity = '0';
       srkTouch.style.transform = 'translate(-50%, -50%) scale(0.9)';
-    }, 750);
+    }, 500);
 
   }
 

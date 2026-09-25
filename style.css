@@ -1154,4 +1154,13 @@ button {
     padding: 0.2rem !important;
     margin: 0 !important;
   }
+
+  .hero__title,
+  .hero__name,
+  .hero h1 {
+    font-family: 'Anton', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
+    font-weight: 400 !important;
+    /* Anton is naturally ultra-bold */
+    letter-spacing: 0.02em;
+  }
 }
